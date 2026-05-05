@@ -1,6 +1,6 @@
 <div align="center">
   <h1>Open Service Protocol (OSP)</h1>
-  <p><strong>The open standard for AI agents to discover, provision, and manage developer services.</strong></p>
+  <p><strong>Service discovery, provisioning, credentials, and lifecycle management for AI agents.</strong></p>
   <p><em>What MCP is to tool access, OSP is to service provisioning.</em></p>
   <p>
     <a href="https://osp.sh">Website</a> ·
@@ -21,7 +21,13 @@
 
 ## Why OSP Exists
 
-AI agents are becoming autonomous economic actors. They spin up databases, deploy apps, configure auth, and wire up analytics — all without human intervention. But today, every service has its own proprietary onboarding flow:
+AI agents are becoming autonomous operators of developer infrastructure. They need to spin up databases, deploy apps, configure auth, rotate credentials, and tear down resources without turning every provider integration into a one-off browser workflow or brittle API wrapper.
+
+OSP defines that lifecycle as a protocol: provider discovery through `.well-known` manifests, provision requests, encrypted credential delivery, rotation, deprovisioning, events, conformance, and payment-rail-neutral settlement.
+
+Current implementation: Rust core crates, TypeScript/Python/Go SDK surfaces, JSON Schemas, provider skills, conformance tests, an MCP server, and a static website.
+
+Today, every service still has its own proprietary onboarding flow:
 
 - **Stripe Projects** (launched March 2026) locks providers into Stripe's invite-only, single-rail ecosystem
 - **Manual signup flows** force agents to open browsers, solve CAPTCHAs, verify emails — things agents can't do
@@ -228,7 +234,6 @@ OSP is payment-rail agnostic. [Sardis](https://sardis.sh) is the founding mainta
 - **Payment Rail** — `sardis_wallet` payment method with escrow lifecycle
 - **MCP Extension** — 9 OSP tools for Claude/GPT agents
 - **CLI Bridge** — `sardis projects add` → OSP provision + Sardis payment
-- **Provider Verification Example** — [Sardis proof verification guide](docs/payments/sardis-provider-verification.md)
 
 Other payment rails (Stripe SPT, x402, MPP, invoicing) are equally supported.
 
@@ -262,7 +267,7 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for full guidelines.
 
 ## Founding Maintainers
 
-- [Sardis](https://sardis.sh) — Payment OS for the Agent Economy
+- [Sardis](https://sardis.sh) — open-source financial authority layer for AI agents
 
 ## License
 
